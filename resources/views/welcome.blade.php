@@ -16,11 +16,15 @@
 </head>
 
 <body class="antialiased font-sans">
-    <header>
-        Header
+    <header class="flex justify-center bg-indigo-50">
+        <a class="p-2 m-2" href="">Inicio</a>
+        <a class="p-2 m-2" href="">Acerca de</a>
+        <a class="p-2 m-2" href="">Contacto</a>
+    </header>
     </header>
     <main>
         Main
+        <livewire:CreateNote />
     </main>
     <footer>
         Footer
