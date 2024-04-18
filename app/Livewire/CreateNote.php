@@ -2,33 +2,35 @@
 
 namespace App\Livewire;
 
+use App\Models\Note;
 use Livewire\Component;
+
 
 class CreateNote extends Component
 {
-    public $todos = [];
-    public $id;
-    public $todoName = '';
+    public $title = '';
     public $description = '';
 
     public function add()
     {
-        $newTodo = [
-            "name" => $this->todoName,
-            "description" => $this->description,
-        ];
-        $this->todos[] = $newTodo;
+        $newTodo = new Note();
+        $newTodo->title = $this->title;
+        $newTodo->description = $this->description;
 
-        $this->todoName = '';
+        $newTodo->save();
+
+        $this->title = '';
         $this->description = '';
     }
     public function see()
     {
-        dd($this->todos);
+        $todos = Note::all();
+        dd($todos);
     }
 
     public function render()
     {
-        return view('livewire.note.create-note');
+        $todos = Note::all();
+        return view('livewire.note.create-note', compact('todos'));
     }
 }

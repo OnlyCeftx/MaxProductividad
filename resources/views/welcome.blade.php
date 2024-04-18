@@ -21,7 +21,9 @@
         <a class="p-2 m-2" href="">Acerca de</a>
         <a class="p-2 m-2" href="">Contacto</a>
     </header>
-    </header>
+    @if (session()->has('status'))
+        <p>{{ session()->get('status') }}</p>
+    @endif
     <main>
         Main
         <livewire:CreateNote />
