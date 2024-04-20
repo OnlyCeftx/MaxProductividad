@@ -19,11 +19,7 @@ class NoteController extends Controller
             $note->description = $request->description;
             $note->save();
             foreach ($fields as $field) {
-                $noteField = new NoteField();
-                $noteField->note_id = $note->id;
-                $noteField->name = $field['name'];
-                $noteField->value = $field['value'];
-                $noteField->save();
+                NoteFieldController::create($note->id, $field);
             }
             toastr()->success('Guardado con Éxito.');
         } catch (\Throwable $th) {
