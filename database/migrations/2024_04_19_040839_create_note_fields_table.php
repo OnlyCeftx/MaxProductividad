@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::connection('mongodb')->create('notes', function (Blueprint $table) {
+        Schema::create('note_fields', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->unsignedBigInteger('note_id');
+            $table->string('name')->nullable();
+            $table->string('value')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('note_id')->references('id')->on('notes');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('note_fields');
     }
 };

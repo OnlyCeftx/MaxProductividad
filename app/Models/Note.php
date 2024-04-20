@@ -19,4 +19,9 @@ class Note extends Model
         'title',
         'description'
     ];
+
+    public function notefields()
+    {
+        return $this->hasMany(related: NoteField::class);
+    }
 }

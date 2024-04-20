@@ -110,7 +110,7 @@ return [
         ],
         'mongodb' => [
             'driver'   => 'mongodb',
-            'dsn' => env('DB_URI', 'mongodb+srv://ceftx:coder@api.9c32qae.mongodb.net/?retryWrites=true&w=majority&appName=api'),
+            'dsn' => env('DB_URI', 'mongodb://ceftx:coder@localhost:27017/'),
             'database' => env('DB_DATABASE', 'concurso'),
         ],
 
